@@ -41,7 +41,11 @@ export class PublishReplayComponent implements OnInit {
             .publishReplay();
 
         intervalHotWithConnect$.connect();
-        intervalHotWithConnect$.subscribe(createSubscriber('With connect() '));
+        intervalHotWithConnect$.subscribe(createSubscriber('With connect(): Subscription 1 '));
+        setTimeout(() => {
+            intervalHotWithConnect$.subscribe(createSubscriber('With connect(): Subscription 2 '));
+        },3000)
+        
     }
 
 }

@@ -10,6 +10,9 @@ import { createSubscriber } from '../lib/subscriber';
 export class RefCountObservableComponent implements OnInit {
 
     ngOnInit() {
+
+        // Without replay the values published during the sequence are lost
+
         /**
      * The RefCount operator automates the process of connecting to and disconnecting from a connectable Observable. 
      * It operates on a connectable Observable and returns an ordinary Observable. 
@@ -18,8 +21,6 @@ export class RefCountObservableComponent implements OnInit {
      * RefCount then keeps track of how many other observers subscribe to it and does not disconnect from the underlying connectable 
      * Observable until the last observer has done so.
      */
-
-    /** There is a difference between the publish() > refCount and share() */
 
         let intervalHotWithRef$ = Observable.interval(1000)
             .take(5)
@@ -45,7 +46,7 @@ export class RefCountObservableComponent implements OnInit {
         intervalHotWithShare$.subscribe(createSubscriber('Subscription 1: With share() '));
         setTimeout(() => {
             intervalHotWithShare$.subscribe(createSubscriber('Subscription 2: With share() '))
-        }, 8000)
+        }, 6000)
     }
 
 }
