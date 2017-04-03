@@ -5,7 +5,16 @@ import { Observable } from 'rxjs/Observable';
 import { createSubscriber } from '../lib/subscriber';
 
 @Component({
-    template: ``
+    template:
+    `
+    <h1>refCount() operator</h1>
+    <p>The RefCount operator automates the process of connecting to and disconnecting from a connectable Observable. 
+    It operates on a connectable Observable and returns an ordinary Observable. </p>
+     
+     <p>When the first observer subscribes to this Observable, RefCount connects to the underlying connectable Observable. 
+     RefCount then keeps track of how many other observers subscribe to it and does not disconnect from the underlying connectable 
+     Observable until the last observer has done so.</p>
+    `
 })
 export class RefCountObservableComponent implements OnInit {
 

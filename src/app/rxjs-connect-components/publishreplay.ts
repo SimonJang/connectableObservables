@@ -5,7 +5,13 @@ import { Observable } from 'rxjs/Observable';
 import { createSubscriber } from '../lib/subscriber';
 
 @Component({
-    template: ``
+    template:
+    `
+    <h1>publishReplay() operator</h1>
+    If you apply the Replay operator to an Observable before you convert it into a connectable Observable, 
+    the resulting connectable Observable will always emit the same complete sequence to any future observers, 
+    even those observers that subscribe after the connectable Observable has begun to emit items to other subscribed observers. 
+    `
 })
 export class PublishReplayComponent implements OnInit {
 
