@@ -27,15 +27,15 @@ export class RefCountObservableComponent implements OnInit {
             .publish()
             .refCount();
 
-        setTimeout(() => {
+       /* setTimeout(() => {
             intervalHotWithRef$.subscribe(createSubscriber('Checking observable with refCount operator'));
-        }, 15000);
+        }, 1000);
 
         // Question: Which values wil be displayed by this subscription?
 
         setTimeout(() => {
             intervalHotWithRef$.subscribe(createSubscriber('Second subscription on refCount observable'));
-        }, 19000);
+        }, 5000);*/
 
         // with share() instead of connect() or refCount()
 
@@ -46,7 +46,7 @@ export class RefCountObservableComponent implements OnInit {
         intervalHotWithShare$.subscribe(createSubscriber('Subscription 1: With share() '));
         setTimeout(() => {
             intervalHotWithShare$.subscribe(createSubscriber('Subscription 2: With share() '))
-        }, 6000)
+        }, 5000)
     }
 
 }

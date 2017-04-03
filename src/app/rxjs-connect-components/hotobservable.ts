@@ -37,6 +37,10 @@ export class HotObservableComponent implements OnInit {
             .publish();
         intervalHotExample$.connect();
         intervalHotExample$.subscribe(createSubscriber('Subscribing on observable after connect()'))
+        
+        setTimeout(() => {
+            intervalHotExample$.subscribe(createSubscriber('Second subscriber, late'))
+        }, 8000); 
 
         /**connect()
          *
@@ -46,7 +50,7 @@ export class HotObservableComponent implements OnInit {
          * In this way you can wait for all intended observers to subscribe to the Observable before the Observable begins emitting items. */
 
 
-        let intervalHot$ = Observable.interval(1000)
+       /* let intervalHot$ = Observable.interval(1000)
             .take(5)
             .publish();
 
@@ -67,7 +71,7 @@ export class HotObservableComponent implements OnInit {
         setTimeout(() => {
             intervalHotAlternative$.connect();
             intervalHotAlternative$.subscribe(createSubscriber('QUESTION 2'));
-        }, 10000);
+        }, 10000); */
     }
 
 }

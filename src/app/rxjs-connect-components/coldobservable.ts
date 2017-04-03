@@ -13,9 +13,11 @@ export class ColdObservableComponent implements OnInit {
         let intervalCold$ = Observable.interval(1000)
             .take(5);
 
+            intervalCold$.subscribe(createSubscriber('Subscription 1'));
+
         setTimeout(() => {
-            intervalCold$.subscribe(createSubscriber('Checking COLD Observable'));
-        }, 3000);
+            intervalCold$.subscribe(createSubscriber('Subscription 2'));
+        }, 2000);
     }
 
 }

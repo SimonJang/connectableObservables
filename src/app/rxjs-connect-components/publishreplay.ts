@@ -22,21 +22,19 @@ export class PublishReplayComponent implements OnInit {
             .refCount();
 
 
-        setTimeout(() => {
             intervalHotWithReplay$.subscribe(createSubscriber('With publishReplay and refCount, subscription 1'));
-        }, 10000);
 
         // Question: What is de difference (there is) ?
 
         setTimeout(() => {
             intervalHotWithReplay$.subscribe(createSubscriber('With publishReplay and refCount, subscription 2'));
-        }, 15000);
+        }, 4000);
 
         
         // With connect() instead of refCount
 
 
-        let intervalHotWithConnect$ = Observable.interval(1000)
+        /*let intervalHotWithConnect$ = Observable.interval(1000)
             .take(5)
             .publishReplay();
 
@@ -44,7 +42,7 @@ export class PublishReplayComponent implements OnInit {
         intervalHotWithConnect$.subscribe(createSubscriber('With connect(): Subscription 1 '));
         setTimeout(() => {
             intervalHotWithConnect$.subscribe(createSubscriber('With connect(): Subscription 2 '));
-        },3000)
+        },3000)*/
         
     }
 
